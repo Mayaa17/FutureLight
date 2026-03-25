@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Nume Produs</title>
+
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap"
+            rel="stylesheet"
+        />
+
+        <style>
+            :root {
+                --bg-color: #ffffff;
+                --surface-color: #ffffff;
+                --primary-color: #7ecee0;
+                --primary-light: #5e6d70;
+                --secondary-color: #2f707d;
+                --accent-color: #0f172a;
+                --warning-color: #facc15;
+            }
+            body {
+                background-color: var(--bg-color);
+                font-family: "Inter", sans-serif;
+                color: var(--accent-color);
+                overflow-x: hidden;
+            }
+            .border-brutal {
+                border: 3px solid var(--accent-color);
+            }
+
+            .shadow-brutal {
+                box-shadow: 6px 6px 0px 0px var(--accent-color);
+            }
+
+            .shadow-brutal-sm {
+                box-shadow: 4px 4px 0px 0px var(--accent-color);
+            }
+
+            .neo-card {
+                background-color: var(--surface-color);
+                border-radius: 12px;
+                transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            .neo-button {
+                border-radius: 8px;
+                font-weight: 800;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                cursor: pointer;
+                transition: all 0.15s ease-out;
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .neo-button:hover {
+                transform: translate(-2px, -2px);
+                box-shadow: 6px 6px 0px 0px var(--accent-color);
+            }
+
+            .neo-button:active {
+                transform: translate(4px, 4px) !important;
+                box-shadow: 0px 0px 0px 0px var(--accent-color) !important;
+            }
+
+            .hide-scrollbar::-webkit-scrollbar {
+                display: none;
+            }
+            .hide-scrollbar {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+
+            @keyframes marquee {
+                0% {
+                    transform: translateX(0%);
+                }
+                100% {
+                    transform: translateX(-50%);
+                }
+            }
+            .animate-marquee {
+                animation: marquee 15s linear infinite;
+                white-space: nowrap;
+            }
+
+            .gallery-img {
+                transition:
+                    opacity 0.4s ease-in-out,
+                    transform 0.4s ease-out;
+            }
+
+            .gallery-img.active {
+                opacity: 1;
+                z-index: 10;
+                transform: scale(1);
+            }
+
+            .gallery-img.inactive {
+                opacity: 0;
+                z-index: 0;
+                transform: scale(1.02);
+            }
+
+            ::selection {
+                background: var(--primary-color);
+                color: white;
+            }
+        </style>
+    </head>
+    <body
+        class="antialiased selection:bg-indigo-600 selection:text-white pb-20 md:pb-0"
+    >
+        <div
+            id="sticky-nav"
+            class="fixed top-0 left-0 w-full bg-[var(--primary-color)] text-white border-b-4 border-brutal border-t-0 border-l-0 border-r-0 z-50 transform -translate-y-full transition-transform duration-300 ease-in-out shadow-brutal"
+        >
+            <div
+                class="max-w-6xl mx-auto p-3 px-6 flex justify-between items-center"
+            >
+                <div class="font-black text-xl tracking-tight">PRODUCT.</div>
+                <div class="flex items-center gap-4">
+                    <a
+                        href="#"
+                        class="neo-button bg-[var(--warning-color)] text-[var(--accent-color)] border-brutal shadow-brutal-sm px-6 py-2 text-sm"
+                    >
+                        HOME
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <nav
+            class="max-w-6xl mx-auto p-6 flex justify-between items-center relative z-40"
+        >
+            <div
+                class="text-3xl font-black tracking-tighter flex items-center gap-2"
+            >
+                <img src="logo.jpeg" width="75" height="75" />
+                FUTURE LIGHT.
+            </div>
+            <div class="hidden md:flex gap-8 font-bold text-lg text-gray-800">
+                <a
+                    href="#features"
+                    class="hover:text-[var(--primary-color)] hover:underline decoration-4 underline-offset-4 transition-all"
+                    >Modes</a
+                >
+                <a
+                    href="#gallery"
+                    class="hover:text-[var(--primary-color)] hover:underline decoration-4 underline-offset-4 transition-all"
+                    >Gallery</a
+                >
+            </div>
+        </nav>
+
+        <div
+            class="w-full bg-[var(--accent-color)] text-white overflow-hidden py-3 border-y-4 border-[var(--accent-color)] -rotate-1 origin-left w-[102%] relative -left-2 mt-4 z-30 shadow-brutal"
+        >
+            <div
+                class="animate-marquee font-black text-sm tracking-widest flex items-center gap-8"
+            >
+                <span>⚡ LOREM</span>
+                <span>•</span>
+                <span>🏆 IPSUM </span>
+                <span>•</span>
+                <span>🚀 DOLORES</span>
+                <span>•</span>
+                <span>♻️ ERGO</span>
+                <span>•</span>
+                <span>⚡ LOREM</span>
+                <span>•</span>
+                <span>🏆 IPSUM </span>
+                <span>•</span>
+                <span>🚀 DOLORES</span>
+                <span>•</span>
+                <span>♻️ ERGO</span>
+                <span>•</span>
+            </div>
+        </div>
+
+        <main
+            class="max-w-6xl mx-auto p-4 md:p-8 space-y-20 mt-8 relative z-20"
+        >
+            <section class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8 order-2 md:order-1">
+                    <div
+                        class="inline-block bg-[var(--warning-color)] border-brutal px-4 py-1 rounded-full font-bold text-sm shadow-[3px_3px_0px_0px_var(--accent-color)] transform -rotate-2"
+                    >
+                        NUME CATCHY BADABIM
+                    </div>
+                    <h1
+                        class="text-6xl md:text-8xl font-black leading-[0.9] tracking-tighter"
+                    >
+                        Lorem <br />
+                        <span class="text-[var(--primary-color)] relative">
+                            Ipsum.
+                            <svg
+                                class="absolute w-full h-4 -bottom-2 left-0 text-[var(--secondary-color)]"
+                                viewBox="0 0 100 20"
+                                preserveAspectRatio="none"
+                            >
+                                <path
+                                    d="M0 10 Q 50 20 100 10"
+                                    stroke="currentColor"
+                                    stroke-width="8"
+                                    fill="transparent"
+                                />
+                            </svg>
+                        </span>
+                    </h1>
+                    <p
+                        class="text-xl font-semibold text-gray-700 leading-relaxed max-w-md"
+                    >
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Aliquam id tellus dictum, volutpat urna ac, tincidunt
+                        lorem.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 pt-2">
+                        <a
+                            href="#features"
+                            class="neo-button bg-[var(--primary-color)] text-white border-brutal shadow-brutal px-8 py-4 text-lg"
+                        >
+                            View More
+                        </a>
+                        <a
+                            href="#gallery"
+                            class="neo-button bg-white text-[var(--accent-color)] border-brutal shadow-brutal px-8 py-4 text-lg"
+                        >
+                            Watch Demo
+                        </a>
+                    </div>
+
+                    <div
+                        class="flex items-center gap-4 pt-6 opacity-80 font-bold text-sm"
+                    >
+                        <div class="flex -space-x-2">
+                            <img
+                                class="w-8 h-8 rounded-full border-2 border-[var(--accent-color)]"
+                                src="https://placehold.co/100x100/4f46e5/ffffff?text=U1"
+                                alt="User"
+                            />
+                            <img
+                                class="w-8 h-8 rounded-full border-2 border-[var(--accent-color)]"
+                                src="https://placehold.co/100x100/38bdf8/ffffff?text=U2"
+                                alt="User"
+                            />
+                            <img
+                                class="w-8 h-8 rounded-full border-2 border-[var(--accent-color)]"
+                                src="https://placehold.co/100x100/facc15/0f172a?text=U3"
+                                alt="User"
+                            />
+                        </div>
+                        <span>"Facut pentru comunitate."</span>
+                    </div>
+                </div>
+
+                <div class="order-1 md:order-2">
+                    <div
+                        class="neo-card border-brutal shadow-brutal p-3 bg-[var(--primary-light)] transform md:rotate-3 transition-transform duration-500 hover:rotate-0"
+                    >
+                        <img
+                            src="mainproduct.jpeg"
+                            alt="Product Hero"
+                            class="w-full h-full object-cover rounded-lg border-2 border-[var(--accent-color)] aspect-square md:aspect-[5/3]"
+                        />
+                    </div>
+                </div>
+            </section>
+
+            <section id="features" class="pt-10">
+                <div class="text-center space-y-4 mb-12">
+                    <h2 class="text-4xl md:text-6xl font-black tracking-tight">
+                        Lorem Ipsum \ Feautures
+                    </h2>
+                    <p
+                        class="text-xl font-medium text-gray-600 max-w-2xl mx-auto"
+                    >
+                        Lorem ipsum dolores Lorem ipsum dolores Lorem ipsum
+                        dolores Lorem ipsum dolores
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div
+                        class="neo-card border-brutal shadow-brutal p-8 space-y-6 hover:-translate-y-2 group"
+                    >
+                        <div
+                            class="w-14 h-14 bg-[var(--secondary-color)] border-brutal shadow-[3px_3px_0px_0px_var(--accent-color)] rounded-full flex items-center justify-center text-2xl group-hover:rotate-12 transition-transform"
+                        >
+                            ⚡
+                        </div>
+                        <h3 class="text-2xl font-black">Selling point 1</h3>
+                        <p class="text-gray-700 font-semibold leading-relaxed">
+                            Pellentesque habitant morbi tristique senectus et
+                            netus et malesuada fames ac turpis egestas.
+                        </p>
+                    </div>
+                    <div
+                        class="neo-card border-brutal shadow-brutal p-8 space-y-6 bg-[var(--primary-color)] text-white hover:-translate-y-2 transform md:-translate-y-4 relative"
+                    >
+                        <div
+                            class="absolute -top-4 -right-4 bg-[var(--warning-color)] text-[var(--accent-color)] text-xs font-black px-3 py-1 border-2 border-[var(--accent-color)] rotate-6"
+                        >
+                            NEW
+                        </div>
+                        <div
+                            class="w-14 h-14 bg-white text-black border-brutal shadow-[3px_3px_0px_0px_var(--accent-color)] rounded-full flex items-center justify-center text-2xl"
+                        >
+                            💎
+                        </div>
+                        <h3 class="text-2xl font-black">Selling point 2</h3>
+                        <p class="text-gray-100 font-medium leading-relaxed">
+                            Vestibulum ante ipsum primis in faucibus orci luctus
+                            et ultrices posuere cubilia curae.
+                        </p>
+                    </div>
+                    <div
+                        class="neo-card border-brutal shadow-brutal p-8 space-y-6 hover:-translate-y-2 group"
+                    >
+                        <div
+                            class="w-14 h-14 bg-[var(--warning-color)] border-brutal shadow-[3px_3px_0px_0px_var(--accent-color)] rounded-full flex items-center justify-center text-2xl group-hover:rotate-12 transition-transform"
+                        >
+                            🔋
+                        </div>
+                        <h3 class="text-2xl font-black">Selling point 3</h3>
+                        <p class="text-gray-700 font-semibold leading-relaxed">
+                            Aenean lacinia bibendum nulla sed consectetur. Fusce
+                            dapibus, tellus ac cursus commodo.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="gallery" class="pt-10">
+                <div
+                    class="neo-card border-brutal shadow-brutal p-6 md:p-10 bg-white"
+                >
+                    <div
+                        class="flex flex-col md:flex-row justify-between items-end mb-8 gap-4"
+                    >
+                        <h2
+                            class="text-4xl md:text-5xl font-black tracking-tight"
+                        >
+                            Galerie Produs.
+                        </h2>
+                        <p
+                            class="font-bold text-gray-500 max-w-xs text-right hidden md:block"
+                        >
+                            BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH
+                        </p>
+                    </div>
+
+                    <div class="grid md:grid-cols-12 gap-6 lg:gap-8">
+                        <div class="md:col-span-9">
+                            <div
+                                class="relative w-full aspect-square md:aspect-[16/10] bg-gray-100 border-brutal rounded-xl overflow-hidden shadow-brutal-sm"
+                            >
+                                <img
+                                    src="Proiecție holografică a vulpii.png"
+                                    class="gallery-img active absolute inset-0 w-full h-full object-cover"
+                                    data-index="0"
+                                    alt="View 1"
+                                />
+                                <img
+                                    src="Experiment chimic holografic în progres.png"
+                                    class="gallery-img inactive absolute inset-0 w-full h-full object-cover"
+                                    data-index="1"
+                                    alt="View 2"
+                                />
+                                <img
+                                    src="Calendar holografic pentru memento medicamente.png"
+                                    class="gallery-img inactive absolute inset-0 w-full h-full object-cover"
+                                    data-index="2"
+                                    alt="View 3"
+                                />
+                            </div>
+                        </div>
+
+                        <div
+                            class="md:col-span-3 flex flex-row md:flex-col gap-4 overflow-x-auto snap-x snap-mandatory hide-scrollbar pb-2 md:pb-0"
+                        >
+                            <button
+                                class="gallery-thumb flex-shrink-0 w-28 md:w-full aspect-[4/3] snap-center rounded-lg border-4 border-[var(--primary-color)] overflow-hidden relative"
+                                data-target="0"
+                            >
+                                <img
+                                    src="Proiecție holografică a vulpii.png"
+                                    class="w-full h-full object-cover"
+                                    alt="Thumb 1"
+                                />
+                                <div
+                                    class="thumb-overlay absolute inset-0 bg-black opacity-0 transition-opacity"
+                                ></div>
+                            </button>
+
+                            <button
+                                class="gallery-thumb flex-shrink-0 w-28 md:w-full aspect-[4/3] snap-center rounded-lg border-4 border-transparent hover:border-gray-300 overflow-hidden relative"
+                                data-target="1"
+                            >
+                                <img
+                                    src="Experiment chimic holografic în progres.png"
+                                    class="w-full h-full object-cover"
+                                    alt="Thumb 2"
+                                />
+                                <div
+                                    class="thumb-overlay absolute inset-0 bg-black opacity-20 transition-opacity hover:opacity-0"
+                                ></div>
+                            </button>
+
+                            <button
+                                class="gallery-thumb flex-shrink-0 w-28 md:w-full aspect-[4/3] snap-center rounded-lg border-4 border-transparent hover:border-gray-300 overflow-hidden relative"
+                                data-target="2"
+                            >
+                                <img
+                                    src="Calendar holografic pentru memento medicamente.png"
+                                    class="w-full h-full object-cover"
+                                    alt="Thumb 3"
+                                />
+                                <div
+                                    class="thumb-overlay absolute inset-0 bg-black opacity-20 transition-opacity hover:opacity-0"
+                                ></div>
+                            </button>
+
+                            <!-- NU STERGE , e imp , cred <div
+                                class="flex-grow flex-col justify-end hidden md:flex space-y-3 mt-4 p-4 bg-[var(--bg-color)] border-brutal rounded-lg"
+                            >
+                                <h4 class="font-black text-lg">Tech Specs</h4>
+                                <ul
+                                    class="text-sm font-bold space-y-2 text-gray-700"
+                                >
+                                    <li
+                                        class="flex justify-between border-b-2 border-gray-200 pb-1"
+                                    >
+                                        <span>Weight</span> <span>1.2 lbs</span>
+                                    </li>
+                                    <li
+                                        class="flex justify-between border-b-2 border-gray-200 pb-1"
+                                    >
+                                        <span>Material</span> <span>Alloy</span>
+                                    </li>
+                                    <li class="flex justify-between">
+                                        <span>Connectivity</span>
+                                        <span>USB-C</span>
+                                    </li>
+                                </ul>
+                            </div>-->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section
+                class="neo-card border-brutal shadow-brutal p-10 md:p-20 bg-[var(--primary-color)] text-white text-center space-y-8 mt-10 relative overflow-hidden"
+            >
+                <div
+                    class="absolute -top-20 -right-20 w-64 h-64 bg-[var(--secondary-color)] rounded-full mix-blend-multiply opacity-50 blur-2xl"
+                ></div>
+
+                <div class="relative z-10">
+                    <h2
+                        class="text-5xl md:text-7xl font-black tracking-tighter mb-6"
+                    >
+                        LOREM IPSUM DOLORES.
+                    </h2>
+                    <p
+                        class="text-xl md:text-2xl font-semibold opacity-90 max-w-2xl mx-auto mb-10"
+                    >
+                        Ergo sum lorem ipsum.Ergo sum lorem ipsum.Ergo sum lorem
+                        ipsum.Ergo sum lorem ipsum.
+                    </p>
+                    <a
+                        href="#"
+                        class="neo-button bg-[var(--warning-color)] text-[var(--accent-color)] border-brutal shadow-brutal px-12 py-5 text-2xl w-full md:w-auto hover:bg-white"
+                    >
+                        Back to Top
+                    </a>
+                    <p class="mt-6 text-sm font-bold opacity-80">
+                        ✓ NUME NUME NUME
+                    </p>
+                </div>
+            </section>
+        </main>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const mainImages = document.querySelectorAll(".gallery-img");
+                const thumbs = document.querySelectorAll(".gallery-thumb");
+                thumbs.forEach((thumb) => {
+                    thumb.addEventListener("click", function () {
+                        const targetIndex = this.getAttribute("data-target");
+                        mainImages.forEach((img) => {
+                            if (
+                                img.getAttribute("data-index") === targetIndex
+                            ) {
+                                img.classList.remove("inactive");
+                                img.classList.add("active");
+                            } else {
+                                img.classList.remove("active");
+                                img.classList.add("inactive");
+                            }
+                        });
+                        thumbs.forEach((t) => {
+                            t.style.borderColor = "transparent";
+                            t.querySelector(".thumb-overlay").style.opacity =
+                                "0.2";
+                        });
+
+                        this.style.borderColor = "var(--primary-color)";
+                        this.querySelector(".thumb-overlay").style.opacity =
+                            "0";
+                    });
+                });
+                const stickyNav = document.getElementById("sticky-nav");
+                window.addEventListener("scroll", () => {
+                    if (window.scrollY > 400) {
+                        stickyNav.classList.remove("-translate-y-full");
+                    } else {
+                        stickyNav.classList.add("-translate-y-full");
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
